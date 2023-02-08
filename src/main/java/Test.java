@@ -1,6 +1,8 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Dilshodbek Akhmedov, Fri 09:38. 12/08/22
@@ -61,4 +63,15 @@ public class Test {
         System.out.println("decimal = " + decimal);
     }
 
+    private static Map<Object, Object> manaMap(Object... obb) {
+        Map<Object, Object> map = new HashMap<>();
+        Object key = null;
+        for (Object o : obb) {
+            if (Objects.nonNull(key)) {
+                map.put(key, o);
+                key = null;
+            } else key = o;
+        }
+        return map;
+    }
 }
