@@ -2,9 +2,7 @@ package api;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -53,8 +51,57 @@ public class HttpHelper {
         return new AbstractMap.SimpleImmutableEntry<>(responseCode, response.toString());
     }
 
-    public static void main(String[] args) {
-        Map.Entry<Integer, String> integerStringEntry = httpGetRequestWithStatus("https://cbu.uz/uz/arkhiv-kursov-valyut/json/RUB/");
-        System.out.println("integerStringEntry.getValue() = " + integerStringEntry.getValue());
+    public static String getResponseByPostString(String urlString, String bodyString) {
+        StringBuilder response = new StringBuilder();
+        BufferedReader br;
+        DataOutputStream wr;
+        byte[] postData = bodyString.getBytes();
+        int postDataLength = postData.length;
+        try {
+            URL url = new URL(urlString);
+
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setReadTimeout(60_000);
+            con.setRequestProperty("Content-type", "application/json; charset=utf-8");
+            con.setRequestProperty("Accept", "application/json");
+
+            con.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+            con.setDoOutput(true);
+            con.setUseCaches(false);
+
+            wr = new DataOutputStream(con.getOutputStream());
+            wr.write(postData);
+
+            br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8));
+            String responseLine;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+        } catch (Exception ex) {
+
+        }
+        return response.toString();
     }
+
+    public static void main(String[] args) {
+        String response =
+                getResponseByPostString(
+                        "http://10.10.17.20:9192/messages/SendSyncMessage",
+                        "{\n" +
+                                "  \"id\": -827964354,\n" +
+                                "  \"method\": \"SendNewMessages\",\n" +
+                                "  \"data\": {\n" +
+                                "    \"groupId\": \"5165021051\",\n" +
+                                "    \"text\": \"<strong>Hermes</strong>\\n<i>Время:\\t </i>28.10.2022 14:58:02\\n<strong><i>Баланс депозита в KZT \uD83C\uDDF0\uD83C\uDDFF </i></strong>\\n\\t Balance: \\t-1,048.1100\\n\\t Overbalance: \\t5,000.0000\\n<strong><i>Баланс депозита в USD \uD83C\uDDFA\uD83C\uDDF8 </i></strong>\\n\\t Balance: \\t-7.4969\\n\\t Overbalance: \\t20.0000\\n<strong><i>Баланс депозита в RUB \uD83C\uDDF7\uD83C\uDDFA </i></strong>\\n\\t Balance: \\t-15.5250\\n\\t Overbalance: \\t1,000.0000\\n\"\n" +
+                                "  }\n" +
+                                "}");
+        System.out.println(response);
+    }
+
+//    public static void main(String[] args) {
+//        Map.Entry<Integer, String> integerStringEntry = httpGetRequestWithStatus("https://cbu.uz/uz/arkhiv-kursov-valyut/json/RUB/");
+//        System.out.println("integerStringEntry.getValue() = " + integerStringEntry.getValue());
+//    }
 }
