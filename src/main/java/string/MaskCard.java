@@ -24,7 +24,12 @@ public class MaskCard {
         StringBuilder maskHolderName = new StringBuilder();
         while (holderNames.hasMoreTokens()) {
             String token = holderNames.nextToken();
-            maskHolderName.append(token.charAt(0)).append("******").append(token.charAt(token.length() - 1)).append(" ");
+            if (token.length() > 1)
+                maskHolderName.append(token.charAt(0))
+                        .append("*".repeat(token.length() - 1))
+                        .append(" ");
+            else
+                maskHolderName.append(token).append(" ");
         }
         return maskHolderName.toString();
     }
