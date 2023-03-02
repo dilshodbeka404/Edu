@@ -1,8 +1,7 @@
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author Dilshodbek Akhmedov, Fri 09:38. 12/08/22
@@ -57,10 +56,15 @@ public class Test {
         return (n % 2 == 0) ? myPow(x * x, n / 2) : x * myPow(x * x, n / 2);
     }
 
-    public static void main(String[] args) {
-        BigDecimal decimal = BigDecimal.valueOf(1448.51048);
-        decimal = decimal.setScale(0, RoundingMode.CEILING);
-        System.out.println("decimal = " + decimal);
+    public  void maain(String[] args) {
+//        BigDecimal decimal = BigDecimal.valueOf(1448.51048);
+//        decimal = decimal.setScale(0, RoundingMode.CEILING);
+//        System.out.println("decimal = " + decimal);
+        UUID uuid = UUID.randomUUID();
+        String uuidAsString = uuid.toString();
+        System.out.println(uuidAsString);
+
+        System.out.println(String.valueOf(System.currentTimeMillis()));
     }
 
     private static Map<Object, Object> manaMap(Object... obb) {
@@ -73,5 +77,9 @@ public class Test {
             } else key = o;
         }
         return map;
+    }
+
+    public static void main(String[] args) {
+        double amountKZT = 51.45684415;
     }
 }
