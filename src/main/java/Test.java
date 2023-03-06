@@ -56,7 +56,7 @@ public class Test {
         return (n % 2 == 0) ? myPow(x * x, n / 2) : x * myPow(x * x, n / 2);
     }
 
-    public  void maain(String[] args) {
+    public static void main(String[] args) {
 //        BigDecimal decimal = BigDecimal.valueOf(1448.51048);
 //        decimal = decimal.setScale(0, RoundingMode.CEILING);
 //        System.out.println("decimal = " + decimal);
@@ -64,7 +64,7 @@ public class Test {
         String uuidAsString = uuid.toString();
         System.out.println(uuidAsString);
 
-        System.out.println(String.valueOf(System.currentTimeMillis()));
+        System.out.println(System.currentTimeMillis());
     }
 
     private static Map<Object, Object> manaMap(Object... obb) {
@@ -79,7 +79,7 @@ public class Test {
         return map;
     }
 
-    public static void main(String[] args) {
+    public  void mawin(String[] args) {
         double amountKZT = 51.45684415;
     }
 }
