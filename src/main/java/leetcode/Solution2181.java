@@ -2,8 +2,6 @@ package leetcode;
 
 import leetcode.models.ListNode;
 
-import java.util.Objects;
-
 /**
  * @author Dilshodbek Akhmedov, Wed 11:54 AM. 12/28/22
  */

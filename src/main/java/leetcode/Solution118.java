@@ -3,9 +3,6 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Dilshodbek Akhmedov, Jum 10:42. 23/12/22
- */
 public class Solution118 {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<>();
@@ -28,5 +25,4 @@ public class Solution118 {
         }
         return result;
     }
-
 }
