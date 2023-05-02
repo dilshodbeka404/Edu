@@ -1,30 +1,27 @@
 package leetcode;
 
-/**
- * @author Dilshodbek Akhmedov, Thu 09:57. 28/07/22
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution242 {
     public static void main(String[] args) {
-        System.out.println("isAnagram = " + isAnagram("hello", "lohel"));
+        String s = "anagram";
+        String t = "nagaram";
+        boolean anagram = isAnagram(s, t);
+        System.out.println("anagram = " + anagram);
     }
 
     public static boolean isAnagram(String s, String t) {
-//        HashMap<Integer, String> check = new HashMap<>();
-//
-//        if (s.length() == t.length()) {
-//
-//            int i = 0;
-//            if (s.length() == 0) return true;
-//
-//            for (char cs : s.toCharArray()) {
-//                check.put(i, String.valueOf(cs));
-//            }
-//            for (char ct : t.toCharArray()) {
-//
-//            }
-//        return false;
-//        } else return false;
-//    }
-        return true;
+        if (s.length() != t.length()) return false;
+        List<Character> chars = new ArrayList<>(s.length());
+        for (char c : s.toCharArray()) {
+            chars.add(c);
+        }
+
+        for (char c : t.toCharArray()) {
+            if (!chars.remove(Character.valueOf(c))) return false;
+        }
+
+        return chars.size() == 0;
     }
 }
