@@ -1,5 +1,8 @@
 package multi_thread;
 
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,7 @@ public class Atomic {
                 myList.add(5);
             }
         }
+        Type listType = new TypeToken<List<String>>() {}.getType();
 
     }
 }

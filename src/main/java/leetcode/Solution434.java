@@ -24,6 +24,6 @@ public class Solution434 {
     }
 
     public static void main(String[] args) {
-        countSegments("Hello, my name is John");
+        countSegments("test.Hello, my name is John");
     }
 }

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Electronic ticket / Receipt</title>
+
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+            color: #323B4B;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h4, h5 {
+            margin: 0;
+        }
+
+        a {
+            color: #377DFF;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-color: #C1C7D0;
+        }
+
+        td, th {
+            border: 1px solid #C1C7D0;
+            text-align: left;
+            padding: 8px;
+            width: 20%;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid #C1C7D0;
+        }
+
+        tr:first-child {
+            background: rgba(3, 0, 91, 0.05);
+        }
+
+        .container {
+            max-width: 716px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 36px;
+            background-color: #fff;
+        }
+
+        .ticket__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+        }
+
+        .ticket__title {
+            margin-bottom: 20.87px;
+            max-width: 397px;
+            font-weight: 500;
+        }
+
+        .ticket__logo {
+            margin-bottom: 7px;
+        }
+
+        .sides__row {
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+            background-color: #03005B0D;
+            padding: 0 6px;
+        }
+
+        .sides__row::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            display: block;
+            height: 100%;
+            width: 1px;
+            background-color: #03005B1A;
+            transform: translateX(-6px);
+        }
+
+        .sides__row li {
+            list-style: none;
+        }
+
+        .slides__item {
+            font-size: 12px;
+            width: 50%;
+        }
+
+        .sides__row--begin__warning {
+            margin-bottom: 16.5px;
+        }
+
+        .sides__row--passenger .slides__item:first-child {
+            padding: 21px 6px;
+        }
+
+        .sides__row--passenger__name {
+            margin-bottom: 8px;
+        }
+
+        .slides__item--center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slides__item--company {
+            font-size: 10px;
+        }
+
+        .slides__item--company li {
+            text-align: right;
+            line-height: 14px;
+        }
+
+        .sides__row--middle {
+            background-color: #fff;
+            margin: 10.95px 0;
+        }
+
+        .sides__row--middle .slides__item {
+            font-size: 10px;
+        }
+
+        .sides__row--middle li {
+            margin-bottom: 8px;
+        }
+
+        .sides__row--middle ul {
+            padding: 0;
+        }
+
+        .sides__row--middle li:last-child,
+        .sides__row--middle_status li:last-child {
+            text-decoration: underline;
+            margin-bottom: 0;
+        }
+
+        .sides__row--middle_status li {
+            margin-bottom: 18.42px;
+        }
+
+        .ticket__cities {
+            font-size: 10px;
+            padding: 10.95px 0;
+        }
+
+        .ticket__table {
+            font-size: 10px;
+        }
+
+        .ticket__payment {
+            font-size: 12px;
+            margin-top: 11px;
+        }
+
+        .ticket__payment-item {
+            display: flex;
+            align-items: center;
+            background: rgba(3, 0, 91, 0.05);
+            border-bottom: 1px solid #C1C7D0;
+            padding: 18px 5.48px;
+        }
+
+        .ticket__description,
+        .ticket__description-subtitle {
+            margin-top: 11px;
+        }
+
+        .ticket__description h5,
+        .ticket__description-subtitle h5 {
+            font-size: 12px;
+        }
+
+        .ticket__description-title {
+            max-width: 175px;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .ticket__description-title h5 {
+            font-weight: 400;
+        }
+
+        .ticket__description-subtitle {
+            margin-bottom: 11px;
+        }
+
+        .ticket__description-text {
+            font-size: 10px;
+        }
+
+        .ticket__description-bottom {
+            background: rgba(3, 0, 91, 0.05);
+            padding: 7px 6px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="ticket__top">
+        <h4 class="ticket__title">
+            Маршрутная квитанция электронного билета Electronic ticket / Receipt
+        </h4>
+
+        <div class="ticket__logo">
+            <svg width="142" height="48" viewBox="0 0 142 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_7880_63775)">
+                    <path d="M0.516565 19.2482C0.42346 3.5013 3.68214 0.0978458 18.9747 0.001974H122.531C137.823 -0.0938978 141.129 3.26162 141.222 19.0086L141.292 28.6676C141.385 44.4146 138.126 47.818 122.834 47.9139H19.2773C3.98474 48.0098 0.6795 44.6543 0.586394 28.9073L0.516565 19.2482Z"
+                          fill="#03005B"/>
+                    <path d="M121.74 4.41211L70.9042 4.74766L20.0454 4.41211C7.8021 4.41211 5.17188 7.12049 5.17188 19.7516V20.4467V27.4932V28.1883C5.17188 40.8194 7.8021 43.5038 20.0454 43.5038L70.8809 43.1683L121.716 43.5038C133.983 43.5038 136.59 40.7955 136.59 28.1883V27.4932V20.4227V19.7276C136.613 7.12049 133.983 4.41211 121.74 4.41211Z"
+                          fill="#FFE9C6"/>
+                    <path d="M51.4679 22.0288H44.0195V25.8637H51.4679V22.0288Z" fill="#03005B"/>
+                    <path d="M40.2953 29.6984V14.3589H22.7217V18.1938H36.5711V22.0286H22.7217V33.5332H44.0195V29.6984H40.2953ZM26.4459 29.6984V25.8635H36.5711V29.6984H26.4459Z"
+                          fill="#00BFDA"/>
+                    <path d="M94.0404 29.6984V14.3589H76.4668V18.1938H90.3162V22.0286H76.4668V33.5332H97.7646V29.6984H94.0404ZM80.191 29.6984V25.8635H90.3162V29.6984H80.191Z"
+                          fill="#00BFDA"/>
+                    <path d="M115.338 14.3589V22.0286H105.213V14.3589H97.7646V18.1938H101.489V25.8635H115.338V29.6984H101.489V33.5332H119.062V14.3589H115.338Z"
+                          fill="#00BFDA"/>
+                    <path d="M72.7425 14.3589H55.1689V33.5332H58.8932V25.8635H72.7425V14.3589ZM69.0183 22.0286H58.8932V18.1938H69.0183V22.0286Z"
+                          fill="#00BFDA"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_7880_63775">
+                        <rect width="141.01" height="47.9159" fill="white" transform="translate(0.514648)"/>
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+    </div>
+
+    <div class="sides">
+        <div class="sides__row">
+            <div class="slides__item slides__item--center">
+                <div class="sides__row--begin__warning">
+                    <b>Внимание! Это не посадочный талон.</b>
+                </div>
+                <b>Во время регистрации предоставьте документ с фото.</b>
+            </div>
+            <div class="slides__item slides__item--company">
+                <ul>
+                    <li>OOO "Lango Trading"</li>
+                    <li>IATA 73320295</li>
+                    <li>27/9, Mirobod str., Tashkent</li>
+                    <li>
+                        <a href="mailto:ask@htmlbook.ru">apay.avia@cdti.uz</a>
+                    </li>
+                    <li>Агент - Бухара, ул. Улугбека 1А, тел.: +998 97 900 00 00</li>
+                    <li>При обращения к нам, сообщите номер Вашего заказа:</li>
+                    <li>
+                        <b>BA-1112-AV</b>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sides__row sides__row--middle">
+            <div class="slides__item">
+                <ul>
+                    <li>
+                        <b>Дата выписки / Issued:</b> 24.05.2022, 12:09
+                    </li>
+                    <li>
+                        <b>Номер билета / E-ticket number:</b> 8955960337665
+                    </li>
+                    <li>
+                        <b>Код бронирования / PNR:</b> 1QL3JQ
+                    </li>
+                    <li>Рекомендуем сохранять данный документ до конца поездки.</li>
+                </ul>
+            </div>
+            <div class="slides__item sides__row--middle_status">
+                <ul>
+                    <li>
+                        <b>Статус:</b> Подтвержден и оплачен полностью
+                    </li>
+                    <li>
+                        <b>Status:</b> Confirmed & Fully paid
+                    </li>
+                    <li>Возрат/обмен билета, согласно правилам Поставщика</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sides__row sides__row--passenger">
+            <div class="slides__item slides__item--center">
+                <b>Сведения о Пассажире / Passenger Information:</b>
+            </div>
+            <div class="slides__item slides__item--center">
+                <div class="sides__row--passenger__name">
+                    <b>ФИО / Name:</b> Mary Akhmedova, взрослый (16.03.1986 г.)
+                </div>
+                <div>
+                    <b>Документ / Document:</b> AW1804224
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticket__cities">
+        Ташкент (Ислам Каримов) — Алматы (Алматы)
+    </div>
+
+
+    <div class="ticket__table">
+        <table>
+            <tr>
+                <th>Рейс / Flight</th>
+                <th>Отправление / Departure (время местное)</th>
+                <th>Прибытие / Arrival (время местное)</th>
+                <th>Тариф / Class</th>
+                <th>Багаж / Baggage</th>
+            </tr>
+            <tr>
+                <td rowspan="2">KC-128, Airbus A321 Air Astana</td>
+                <td>15.08.2022, 12:20 Ташкент, Ислам Каримов (TAS). Терминал: 2</td>
+                <td>15.08.2022, 14:50 Алматы, Алматы (ALA).</td>
+                <td rowspan="2">
+                    Эконом / Econom. Изменения со штрафом. Возврат: Да. , Обмен: Да
+                </td>
+                <td rowspan="2">Мест багажа: 1 Мест ручной клади: 1, до 8 кг.</td>
+            </tr>
+            <tr>
+                <td colspan="2">Время в пути: 1 ч. 30 мин</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="ticket__payment">
+        <div class="ticket__payment-item">
+            <b>Форма оплаты / Payment method:</b> картой онлайн / online by card
+        </div>
+        <div class="ticket__payment-item">
+            <b>Общая сумма / Total amount:</b> 1 321 655,00 UZS
+        </div>
+    </div>
+
+    <div class="ticket__description">
+        <div class="ticket__description-title">
+            <h5>Желаем Вам приятного полета! Have a nice flight!</h5>
+        </div>
+
+        <div class="ticket__description-text">
+            <div class="ticket__description-subtitle">
+                <h5>Важная информация!</h5>
+            </div>
+
+            <p>
+                Пассажир, подошедший на регистрацию после ее окончания, к перевозке на данный рейс не допускается.
+                Для внутренних перелетов, регистрация на рейс заканчивается за 40 минут до времени вылета,
+                указанного в билете и за 1 час до времени вылета для международных рейсов.
+            </p>
+            <p>
+                Багаж и ручная кладь разрешены к перевозке, если их габариты не превышают установленных Перевозчиком
+                норм.
+            </p>
+            <p>
+                Указан тип самолета, заявленный на момент бронирования билетов. Самолет может быть заменен перевозчиком.
+            </p>
+            <p>
+                Пассажиры, перевозка которых имеет конечный пункт назначения или остановку не в стране отправления,
+                уведомляются о том, что вотношении всей перевозки, включая любую ее часть, находящуюся в пределах
+                территории страны,
+                могут применяться положения международных соглашений, известных как Монреальская конвенция или
+                предшествующая ей Варшавская конвенция, включая поправки к ней (Варшавская система). Для таких
+                пассажиров применяемое соглашение
+                (включая особые условия перевозки, обусловленные применяемыми тарифами) регулирует и может ограничивать
+                ответственность перевозчика.
+                Более подробную информацию можно получить у перевозчика.
+            </p>
+            <p>
+                В случае необходимости возврата или обмена авиабилета Вам необходимо обратиться в контакт-центр Bookhara
+                по электронной почте support@bookhara.com в свободной форме или по телефону +998712004800
+            </p>
+            <p>
+                В случае возникновения вопросов, касающихся условий перевозки: негабаритный багаж, животные, люди с
+                ограниченными возможностями, опасные грузы и прочее, рекомендуем обратиться напрямую в контакт-центр
+                самой авиакомпании.
+            </p>
+
+            <div class="ticket__description-bottom">
+                Данный билет куплен и выписан на сайте <a href="https://bookhara.uz">https://bookhara.uz</a>
+                и действителен без подписи и печати. Сохраняйте билет до конца поездки.
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
