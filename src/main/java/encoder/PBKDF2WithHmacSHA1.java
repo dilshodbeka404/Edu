@@ -14,6 +14,9 @@ public class PBKDF2WithHmacSHA1 {
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
         String password = generateStrongPasswordHash("kadirov_33&53");
         System.out.println("password = " + password);
+        boolean validated = validatePassword("kadirov_33&53", password);
+        System.out.println("validated = " + validated);
+
     }
 
     public static String generateStrongPasswordHash(String password)
@@ -36,7 +39,7 @@ public class PBKDF2WithHmacSHA1 {
         return salt;
     }
 
-    public boolean validatePassword(String originalPassword, String storedPassword)
+    public static boolean validatePassword(String originalPassword, String storedPassword)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         String[] parts = storedPassword.split(":");
         int iterations = Integer.parseInt(parts[0]);
@@ -46,7 +49,7 @@ public class PBKDF2WithHmacSHA1 {
 
         PBEKeySpec spec = new PBEKeySpec(originalPassword.toCharArray(),
                 salt, iterations, hash.length * 8);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("encoder.PBKDF2WithHmacSHA1");
+        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] testHash = skf.generateSecret(spec).getEncoded();
 
         int diff = hash.length ^ testHash.length;
@@ -68,7 +71,7 @@ public class PBKDF2WithHmacSHA1 {
         }
     }
 
-    private byte[] fromHex(String hex) {
+    private static byte[] fromHex(String hex) {
         byte[] bytes = new byte[hex.length() / 2];
         for (int i = 0; i < bytes.length; i++) {
             bytes[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
