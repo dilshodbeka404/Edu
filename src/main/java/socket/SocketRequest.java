@@ -8,31 +8,6 @@ import java.net.Socket;
  */
 public class SocketRequest {
 
-    private static Socket socket;
-    private static ObjectOutputStream oos;
-    private static ObjectInputStream ois;
-    private static String req = "ip=192.168.211.37&channel_id=9&service_id=39391&action=1&web_user_id=524464&VERSION=3.0.2&ACT=1&PASSWORDHASH=621A073881553E4DCA27FB29AF5B3693C57CA2C5&USER_ID=422523&SID=1D0E33D5752390EAF4E3E342910CDBB0&transactionId=12189706184&hermes_service_id=1192&LANG=ru";
-
-//    public static void main(String[] args) {
-//        try {
-//            InetAddress host = InetAddress.getByName("localhost");
-//            socket = new Socket(host.getHostName(), 44399);
-//            oos = new ObjectOutputStream(socket.getOutputStream());
-//
-//            System.out.println("Sending request to Socket Server");
-//            oos.writeObject(req);
-//            ois = new ObjectInputStream(socket.getInputStream());
-//
-//            String message = (String) ois.readObject();
-//            System.out.println("Message: " + message);
-//
-//            ois.close();
-//            oos.close();
-//        } catch (Exception e) {
-//            System.out.println("e = " + e);
-//        }
-//    }
-
     public static void main(String[] args) {
         try {
             Socket client = new Socket("localhost", 44399);
@@ -41,6 +16,19 @@ public class SocketRequest {
 
             OutputStream outToServer = client.getOutputStream();
             DataOutputStream out = new DataOutputStream(outToServer);
+
+            String req = "ip=192.168.211.37" +
+                    "&channel_id=9" +
+                    "&service_id=39391" +
+                    "&action=1" +
+                    "&web_user_id=524464" +
+                    "&VERSION=3.0.2" +
+                    "&ACT=1&PASSWORDHASH=621A073881553E4DCA27FB29AF5B3693C57CA2C5" +
+                    "&USER_ID=422523" +
+                    "&SID=1D0E33D5752390EAF4E3E342910CDBB0" +
+                    "&transactionId=12189706184" +
+                    "&hermes_service_id=1192" +
+                    "&LANG=ru";
 
             out.writeUTF(req);
             InputStream inFromServer = client.getInputStream();
