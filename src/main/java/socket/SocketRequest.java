@@ -23,7 +23,8 @@ public class SocketRequest {
                     "&action=1" +
                     "&web_user_id=524464" +
                     "&VERSION=3.0.2" +
-                    "&ACT=1&PASSWORDHASH=621A073881553E4DCA27FB29AF5B3693C57CA2C5" +
+                    "&ACT=1" +
+                    "&PASSWORDHASH=621A073881553E4DCA27FB29AF5B3693C57CA2C5" +
                     "&USER_ID=422523" +
                     "&SID=1D0E33D5752390EAF4E3E342910CDBB0" +
                     "&transactionId=12189706184" +
