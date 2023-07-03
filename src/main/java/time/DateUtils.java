@@ -24,6 +24,10 @@ public final class DateUtils {
         return longDateFormatWithoutSecond.format(localDateTime);
     }
 
+    public static void main(String[] args) {
+        LocalDateTime startOfMonth = getStartOfMonth(LocalDateTime.now());
+        System.out.println("startOfMonth = " + startOfMonth);
+    }
     public static LocalDateTime getStartOfMonth(LocalDateTime dateTime) {
         dateTime = dateTime.withDayOfMonth(1);
         dateTime = dateTime.withHour(0);

@@ -7,14 +7,14 @@ import java.util.StringTokenizer;
  */
 public class MaskCard {
     public static void main(String[] args) {
-        System.out.println(maskCardholder("Dilshodbek Axmedov Kamiljan"));
+        System.out.println(maskCardholder("Dilshodbek Axmedov Kamiljan ug'li"));
 
-        String str = "8600021041783708";
+        String str = "8600012341234708";
         System.out.println(maskString(str));
     }
 
     private static String maskString(String strText) {
-        int maskLength = 6;
+        int maskLength = 8;
         String sbMaskString = "*".repeat(maskLength);
         return strText.substring(0, 6) + sbMaskString + strText.substring(6 + maskLength);
     }

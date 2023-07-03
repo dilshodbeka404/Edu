@@ -49,7 +49,7 @@ public class QueueSynchronized<T> {
             }
         } finally {
             synchronized (isFull) {
-                isFull.notify();
+                isFull.notifyAll();
             }
         }
     }
@@ -70,7 +70,7 @@ public class QueueSynchronized<T> {
             size++;
         }
         synchronized (isEmpty) {
-            isEmpty.notify();
+            isEmpty.notifyAll();
         }
         return this;
     }
