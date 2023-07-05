@@ -21,18 +21,23 @@ public class EduStream {
     //
     static List<String> list = Arrays.asList("abc1", "abc2", "2  abc3");
     static long counter = 0;
+
     static void wasCalled() {
         counter++;
     }
+
     static Stream<String> stream = list.stream().filter(element -> {
         wasCalled();
         return element.contains("2");
     });
 
     //data
-    static List<Product> productList = Arrays.asList(new Product(23, "potatoes"),
-            new Product(14, "orange"), new Product(13, "lemon"),
-            new Product(23, "bread"), new Product(13, "sugar"));
+    static List<Product> productList =
+            Arrays.asList(
+                    new Product(23, "potatoes"),
+                    new Product(14, "orange"), new Product(13, "lemon"),
+                    new Product(23, "bread"), new Product(13, "sugar")
+            );
 
 
     //Custom collector
