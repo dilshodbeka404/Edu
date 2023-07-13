@@ -35,8 +35,10 @@ public class EduStream {
     static List<Product> productList =
             Arrays.asList(
                     new Product(23, "potatoes"),
-                    new Product(14, "orange"), new Product(13, "lemon"),
-                    new Product(23, "bread"), new Product(13, "sugar")
+                    new Product(14, "orange"),
+                    new Product(13, "lemon"),
+                    new Product(23, "bread"),
+                    new Product(13, "sugar")
             );
 
 

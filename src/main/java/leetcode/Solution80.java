@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.time.LocalDate;
+
 public class Solution80 {
     public int removeDuplicates(int[] nums) {
         int tmp = nums[0];
@@ -17,4 +19,19 @@ public class Solution80 {
         }
         return count;
     }
+
+    public int removeDuplicate(int[] nums) {
+        int l = nums.length;
+        int[] ptemps = new int[l];
+
+        int tmp = 0;
+        for (int num : nums) {
+            if (num >= l) {
+                ptemps[num - 1] = num;
+                tmp = num;
+            }
+        }
+        return tmp;
+    }
+
 }
