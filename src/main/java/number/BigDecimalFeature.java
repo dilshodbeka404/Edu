@@ -8,11 +8,35 @@ import java.math.RoundingMode;
  */
 public class BigDecimalFeature {
     public static void main(String[] args) {
-     double val = 13.12491234;
-        BigDecimal bigDecimal = new BigDecimal(val);
+        double val = 13.12491234;
+        BigDecimal bigDecimal = BigDecimal.valueOf(val);
 
         bigDecimal = bigDecimal.setScale(4, RoundingMode.UP);
 
         System.out.println("bigDecimal = " + bigDecimal.doubleValue());
+        calculateCashback();
     }
+
+    public static void calculateCashback() {
+        long amount = 50000;
+        double commission = 12.5;
+
+        BigDecimal newApayCashback = calcCommissionPercentOfTotalAmount(
+                BigDecimal.valueOf(amount / 100),
+                BigDecimal.valueOf(commission)
+        );
+
+
+        BigDecimal multiply = newApayCashback.multiply(new BigDecimal(90)).divide(new BigDecimal(100), RoundingMode.HALF_DOWN);
+
+        System.out.println("newApayCashback = " + newApayCashback + "\nmultiply = " + multiply);
+    }
+
+    public static BigDecimal calcCommissionPercentOfTotalAmount(BigDecimal totalAmount, BigDecimal commission) {
+        if (commission == null) {
+            return BigDecimal.ZERO;
+        }
+        return commission.divide(totalAmount.divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP), 2, RoundingMode.HALF_UP);
+    }
+
 }
