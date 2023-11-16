@@ -8,13 +8,14 @@ import java.math.RoundingMode;
  */
 public class BigDecimalFeature {
     public static void main(String[] args) {
-        double val = 13.12491234;
-        BigDecimal bigDecimal = BigDecimal.valueOf(val);
-
-        bigDecimal = bigDecimal.setScale(4, RoundingMode.UP);
-
-        System.out.println("bigDecimal = " + bigDecimal.doubleValue());
-        calculateCashback();
+//        double val = 13.12491234;
+//        BigDecimal bigDecimal = BigDecimal.valueOf(val);
+//
+//        bigDecimal = bigDecimal.setScale(4, RoundingMode.UP);
+//
+//        System.out.println("bigDecimal = " + bigDecimal.doubleValue());
+//        calculateCashback();
+        System.out.printf("--> " + subtractAndRemainder(BigDecimal.valueOf(35983194L)));
     }
 
     public static void calculateCashback() {
@@ -37,6 +38,10 @@ public class BigDecimalFeature {
             return BigDecimal.ZERO;
         }
         return commission.divide(totalAmount.divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP), 2, RoundingMode.HALF_UP);
+    }
+
+    public static BigDecimal subtractAndRemainder(BigDecimal withdrawAmount) {
+        return withdrawAmount.subtract(withdrawAmount.remainder(BigDecimal.valueOf(10000000L)));
     }
 
 }

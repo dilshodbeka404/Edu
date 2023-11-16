@@ -119,7 +119,7 @@ public class HttpHelper {
         public void run() {
             log.info(Thread.currentThread().getName() + " Start");
             try {
-                URL url = new URL("https://tuit.uz/");
+                URL url = new URL("https://umardev.onrender.com/");
 
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
