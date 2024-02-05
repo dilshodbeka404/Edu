@@ -119,7 +119,7 @@ public class HttpHelper {
         public void run() {
             log.info(Thread.currentThread().getName() + " Start");
             try {
-                URL url = new URL("https://www.turtkultumanakm.uz");
+                URL url = new URL("https://eco-service.uz/");
 
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");

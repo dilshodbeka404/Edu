@@ -15,8 +15,13 @@ public class BigDecimalFeature {
 //
 //        System.out.println("bigDecimal = " + bigDecimal.doubleValue());
 //        calculateCashback();
-        System.out.printf("--> " + subtractAndRemainder(BigDecimal.valueOf(35983194L)));
+//        System.out.printf("--> " + subtractAndRemainder(BigDecimal.valueOf(35983194L)));
+
+        BigDecimal value = BigDecimal.valueOf(340000.00);
+
+        System.out.println("value = " + value.longValue());
     }
+
 
     public static void calculateCashback() {
         long amount = 50000;
