@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Dilshodbek Akhmedov, Jum 14:44. 18/11/22
  */
@@ -12,7 +15,8 @@ public class Solution169 {
 
 
     public static int majorityElement(int[] nums) {
-        int count = 0, res = 0;
+        int count = 0;
+        int res = 0;
         for (int num : nums) {
             if (count == 0) {
                 res = num;
@@ -25,28 +29,19 @@ public class Solution169 {
         }
         return res;
     }
-//    public static int majorityElement(int[] nums) {
-//        Map<Integer, Integer> majorityNums = new HashMap<>();
-//        for (int num : nums) {
-//            Integer mapElement = majorityNums.get(num);
-//            if (Objects.isNull(mapElement)) {
-//                majorityNums.put(num, 1);
-//            } else {
-//                majorityNums.put(num, mapElement + 1);
-//            }
-//        }
-//
-//        int max = 0;
-//        int result = 0;
-//        for (Map.Entry<Integer, Integer> integerIntegerEntry : majorityNums.entrySet()) {
-//            if (integerIntegerEntry.getValue() > max) {
-//                max = integerIntegerEntry.getValue();
-//                result = integerIntegerEntry.getKey();
-//            }
-//        }
-//
-//        return result;
-//    }
 
 
+    public static int majorityElement2(int[] nums) {
+        Map<Integer, Integer> numberCountMap = new HashMap<>();
+
+        for (int key : nums) {
+            Integer value = numberCountMap.getOrDefault(key, 0) + 1;
+            numberCountMap.put(key, value);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : numberCountMap.entrySet()) {
+            if (entry.getValue() > nums.length / 2) return entry.getKey();
+        }
+        return 0;
+    }
 }
