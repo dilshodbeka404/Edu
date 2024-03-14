@@ -12,5 +12,9 @@ public class MapToString {
         headersMap.put("key4", "value4");
         String string = headersMap.toString();
         System.out.println("==================== Headers ====================\n" + string + "\n=================================================");
+        ClassInstance classInstance = ClassInstance.getClassInstance();
+        System.out.println("classInstance = " + classInstance);
+        classInstance.setA(5);
+        System.out.println("classInstance = " + classInstance);
     }
 }

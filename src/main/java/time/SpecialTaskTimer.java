@@ -13,7 +13,7 @@ public class SpecialTaskTimer extends TimerTask {
     }
     @Override
     public void run() {
-        long delay = 1000L; // 5 minute
+        long delay = 10L; // 5 minute
         try {
             String agentIds = "1,2,3,4";
 
