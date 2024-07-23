@@ -1,5 +1,7 @@
 package test;
 
+
+
 public class Hello {
     private String name;
     private Integer age = 25;
@@ -28,11 +30,4 @@ public class Hello {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Hello{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }
