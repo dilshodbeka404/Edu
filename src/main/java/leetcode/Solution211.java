@@ -1,10 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Solution211 {
     public static void main(String[] args) {
 
@@ -19,7 +14,7 @@ public class Solution211 {
  */
 
 class WordDictionary {
-    class TrieNode {
+    static class TrieNode {
         boolean isWord;
         TrieNode[] children;
 

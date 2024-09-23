@@ -19,7 +19,7 @@ public class BigDecimalFeature {
 
         BigDecimal value = BigDecimal.valueOf(340000.00);
 
-        System.out.println("value = " + value.longValue());
+        System.out.println("value = " + subtractAndRemainder(BigDecimal.valueOf(11324.15)));
     }
 
 
@@ -46,7 +46,9 @@ public class BigDecimalFeature {
     }
 
     public static BigDecimal subtractAndRemainder(BigDecimal withdrawAmount) {
-        return withdrawAmount.subtract(withdrawAmount.remainder(BigDecimal.valueOf(10000000L)));
+        System.out.println("withdrawAmount.remainder(BigDecimal.valueOf(10050)) = " + withdrawAmount.remainder(BigDecimal.valueOf(10050)));
+        System.out.println("withdrawAmount.subtract(withdrawAmount.remainder(BigDecimal.valueOf(10050)) = " + withdrawAmount.subtract(withdrawAmount.remainder(BigDecimal.valueOf(10050))));
+        return withdrawAmount.subtract(withdrawAmount.remainder(BigDecimal.valueOf(10050)));
     }
 
 }

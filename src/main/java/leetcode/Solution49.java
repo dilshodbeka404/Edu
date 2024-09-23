@@ -6,7 +6,7 @@ public class Solution49 {
 
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> anagramsMap = new HashMap<>();
-        Map<Integer, Integer> uniqueIntegersMap = new HashMap<>();
+
         for (String str : strs) {
             char[] chars = str.toCharArray();
             Arrays.sort(chars);

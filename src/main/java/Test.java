@@ -1,5 +1,5 @@
-import com.google.gson.Gson;
-
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -68,9 +68,14 @@ public class Test {
 
         System.out.println(System.currentTimeMillis());
 
-        System.out.println(null + "");
+        System.out.println("Hours = " + Duration.between(LocalDateTime.now().minusHours(2).minusMinutes(15), LocalDateTime.now()).toHours());
 
-        System.out.println(new Gson().toJson(""));
+        StringBuilder initials = new StringBuilder();
+        String[] words = "    humo Card get   Owner   ".trim().split("\\s+");
+        for (String word : words) {
+            initials.append(word.charAt(0)).append(". ");
+        }
+        System.out.println(initials.toString().trim());
     }
 
     private static Map<Object, Object> manaMap(Object... obb) {
@@ -83,9 +88,5 @@ public class Test {
             } else key = o;
         }
         return map;
-    }
-
-    public  void mawin(String[] args) {
-        double amountKZT = 51.45684415;
     }
 }

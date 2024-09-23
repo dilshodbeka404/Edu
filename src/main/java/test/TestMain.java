@@ -1,9 +1,12 @@
 package test;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TestMain {
     public static void main(String[] args) {
-        Object object = "0";
-        String string = object.toString();
-        System.out.println("object = " + Long.valueOf(string));
+        Hello test = new Hello();
+
+        log.info(">>>>>>>>>>>>>>>>>> startAutoWithdraw => autoWithdrawRequests: {} <<<<<<<<<<<<<<<<<<<", test);
     }
 }

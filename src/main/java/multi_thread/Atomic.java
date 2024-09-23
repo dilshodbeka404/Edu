@@ -1,31 +1,42 @@
 package multi_thread;
 
-import com.google.gson.reflect.TypeToken;
+import lombok.extern.slf4j.Slf4j;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Dilshodbek Akhmedov, Jum 14:57. 25/11/22
  */
+
+@Slf4j
 public class Atomic {
-    volatile Integer integer1 = 1;
+
+    private static final int LIMIT = 100_000;
+    private static final int THREAD_COUNT = 5;
+    private static final int TOTAL_OFFSET = 100_000_111;
+    private static final AtomicInteger offset = new AtomicInteger(0);
 
     public static void main(String[] args) {
-        List<Integer> myList = new ArrayList<>();
-        myList.add(1);
-        myList.add(2);
-        myList.add(3);
-        myList.add(4);
-        myList.add(6);
-        for(Integer i : myList){
-            System.out.println("i = " + i);
-            if(i.equals(4)){
-                myList.add(5);
-            }
+        ExecutorService executorService = Executors.newFixedThreadPool(THREAD_COUNT);
+        for (int i = 0; i < THREAD_COUNT; i++) {
+            executorService.execute(migrationTask());
         }
-        Type listType = new TypeToken<List<String>>() {}.getType();
+        executorService.shutdown();
+    }
 
+    private static Runnable migrationTask() {
+        return () -> {
+            while (offset.get() <= TOTAL_OFFSET) {
+                log.info("limit: {} offset: {}", LIMIT, offset.getAndAdd(LIMIT));
+//                try {
+//                    Thread.sleep(500);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+
+            }
+        };
     }
 }
