@@ -25,19 +25,19 @@ public class HashUtil {
                 hexString.append(hex);
             }
 
-            return hexString.toString().toUpperCase(Locale.ROOT);
+            return hexString.toString().toUpperCase();
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static void main(String[] args) {
-        String value = "Hello World";
+        String value = "9860080112972197";
         String hashValue = getSHA256Hash(value);
         System.out.println("Value: " + value);
         System.out.println("SHA-256 Hash: " + hashValue);
-        //a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e
-        //a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e
+        //C46A5AF4575F051D57BBE8B3E32365A2E8A2768F24635AA41F8183EBF438C074
+        //C46A5AF4575F051D57BBE8B3E32365A2E8A2768F24635AA41F8183EBF438C074
     }
 }
 
