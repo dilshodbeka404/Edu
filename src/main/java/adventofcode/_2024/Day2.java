@@ -1,4 +1,4 @@
-package adventofcode;
+package adventofcode._2024;
 
 import java.io.File;
 import java.io.FileNotFoundException;
