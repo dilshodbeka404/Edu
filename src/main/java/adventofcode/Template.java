@@ -1,4 +1,4 @@
-package adventofcode._2024;
+package adventofcode;
 
 import java.io.File;
 import java.util.Arrays;
