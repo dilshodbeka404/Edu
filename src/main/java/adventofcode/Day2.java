@@ -21,19 +21,23 @@ public class Day2 {
     }
 
     public static boolean isSafeReport(String[] report) {
-        boolean increasing = true;
-        boolean decreasing = true;
+        boolean isIncreasing = true;
+        boolean isDecreasing = true;
 
         for (int i = 1; i < report.length; i++) {
             int diff = Integer.parseInt(report[i]) - Integer.parseInt(report[i - 1]);
-            if (diff < 1 || diff > 3) return false;
 
+            if (Math.abs(diff) < 1 || Math.abs(diff) > 3) {
+                return false;
+            }
+
+            // Check increasing or decreasing
             if (diff > 0) {
-                decreasing = false;
+                isDecreasing = false; // Can't be decreasing if it increases
             } else if (diff < 0) {
-                increasing = false;
+                isIncreasing = false; // Can't be increasing if it decreases
             }
         }
-        return increasing || decreasing;
+        return isIncreasing || isDecreasing;
     }
 }
