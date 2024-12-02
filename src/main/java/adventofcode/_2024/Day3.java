@@ -12,7 +12,7 @@ public class Day3 {
         try (Scanner scan = new Scanner(new File("src/main/resources/input.txt"))) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                List<String> nums = Arrays.stream(line.split(" ")).toList();
+                List<Integer> nums = Arrays.stream(line.split(" ")).map(Integer::parseInt).toList();
                 System.out.println(nums);
 
 
