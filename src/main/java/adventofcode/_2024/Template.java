@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Day3 {
+public class Template {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println(">>>>>>>>>>>>>>>> Start file read");
         try (Scanner scan = new Scanner(new File("src/main/resources/input.txt"))) {
