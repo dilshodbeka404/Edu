@@ -9,14 +9,16 @@ import java.util.Scanner;
 public class Day3 {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println(">>>>>>>>>>>>>>>> Start file read");
-        Scanner scan = new Scanner(new File("src/main/resources/input.txt"));
+        try (Scanner scan = new Scanner(new File("src/main/resources/input.txt"))) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                List<String> nums = Arrays.stream(line.split(" ")).toList();
+                System.out.println(nums);
 
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            List<String> nums = Arrays.stream(line.split(" ")).toList();
-            System.out.println(nums);
 
-
+            }
+        } catch (Exception e) {
+            System.err.println("Exception: " + e.getMessage());
         }
     }
 }

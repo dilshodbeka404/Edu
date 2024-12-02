@@ -11,14 +11,17 @@ public class Day1 {
     static List<Integer> line1 = new ArrayList<>();
     static List<Integer> line2 = new ArrayList<>();
 
-    public static void fileReader() throws FileNotFoundException {
+    public static void fileReader() {
         System.out.println(">>>>>>>>>>>>>>>> Start file read");
-        Scanner scan = new Scanner(new File("src/main/resources/input.txt"));
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            String[] nums = line.split(" {3}");
-            line1.add(Integer.valueOf(nums[0]));
-            line2.add(Integer.valueOf(nums[1]));
+        try (Scanner scan = new Scanner(new File("src/main/resources/input.txt"))) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] nums = line.split(" {3}");
+                line1.add(Integer.valueOf(nums[0]));
+                line2.add(Integer.valueOf(nums[1]));
+            }
+        } catch (Exception e) {
+            System.err.println("Exception: " + e.getMessage());
         }
     }
 

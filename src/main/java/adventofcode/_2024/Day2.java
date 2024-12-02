@@ -8,16 +8,18 @@ import java.util.Scanner;
 public class Day2 {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println(">>>>>>>>>>>>>>>> Start file read");
-        Scanner scan = new Scanner(new File("src/main/resources/input.txt"));
-
-        int count = 0;
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            String[] nums = line.split(" ");
-            System.out.println(Arrays.stream(nums).toList());
-            if (isSafeReport(nums)) count++;
+        try (Scanner scan = new Scanner(new File("src/main/resources/input.txt"))) {
+            int count = 0;
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] nums = line.split(" ");
+                System.out.println(Arrays.stream(nums).toList());
+                if (isSafeReport(nums)) count++;
+            }
+            System.out.println("count = " + count);
+        } catch (Exception e) {
+            System.err.println("Exception: " + e.getMessage());
         }
-        System.out.println("count = " + count);
     }
 
     public static boolean isSafeReport(String[] report) {
