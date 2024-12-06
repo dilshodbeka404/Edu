@@ -1,5 +1,6 @@
 package string;
 
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,6 +22,18 @@ public class Regex {
             System.out.println("d = " + d);
         } catch (Exception e) {
             System.out.println("e = " + e);
+        }
+    }
+
+    public static void main0(String[] args) {
+        String str = "000.0";
+
+        // Barcha belgilar raqammi?
+        if (Pattern.matches("\\d+",str)) {
+            System.out.println("String faqat raqamlardan iborat");
+            System.out.println("Integer.valueOf(str) = " + Integer.valueOf(str));
+        } else {
+            System.out.println("Stringda boshqa belgilar ham bor");
         }
     }
 }
